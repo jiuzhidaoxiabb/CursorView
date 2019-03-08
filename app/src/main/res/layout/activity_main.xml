@@ -70,7 +70,7 @@
             android:layout_weight="0.025"
             android:gravity="center" />
 
-        <com.xhc.seekbartest.CursorView
+        <com.xhc.cursor.CursorView
             android:id="@+id/seek_bar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

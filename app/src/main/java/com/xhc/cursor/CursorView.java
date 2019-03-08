@@ -1,4 +1,4 @@
-package com.xhc.seekbartest;
+package com.xhc.cursor;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
