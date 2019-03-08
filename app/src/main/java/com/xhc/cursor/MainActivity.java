@@ -9,8 +9,7 @@ import android.widget.TextView;
  *
  * @author lyp
  */
-public class MainActivity extends AppCompatActivity
-        implements CursorView.OnSeekBarProgressChangeListener {
+public class MainActivity extends AppCompatActivity {
 
     private CursorView mCursorView;
     private TextView mTextView;
@@ -27,26 +26,21 @@ public class MainActivity extends AppCompatActivity
         mCursorView.setLeftText(0.0f);
         mCursorView.setRightText(10.0f);
 
-        mCursorView.setOnProgressChangeListener(this);
-    }
-
-    @Override
-    protected void onStart() {
-        // TODO Auto-generated method stub
-        super.onStart();
         mCursorView.setProgressText(0);
-        mCursorView.setOnProgressChangeListener(this);
         mCursorView.post(new Runnable() {
             @Override
             public void run() {
                 mCursorView.initShow();
             }
         });
-    }
 
-    @Override
-    public String onGetValueChanged(CursorView cursorView, float progress) {
-        mTextView.setText("" + progress);
-        return null;
+        // 监听滑动
+        mCursorView.setOnProgressChangeListener(new CursorView.OnSeekBarProgressChangeListener() {
+            @Override
+            public String onGetValueChanged(CursorView cursorView, float progress) {
+                mTextView.setText("" + progress);
+                return null;
+            }
+        });
     }
 }
